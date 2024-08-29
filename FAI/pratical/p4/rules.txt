@@ -1,0 +1,4 @@
+IF hello THEN Hi there! How can I help you?
+IF bye THEN Goodbye! Have a great day!
+IF help THEN Sure, I'm here to help you.
+IF weather THEN It's a sunny day today.
