@@ -21,7 +21,7 @@ def main():
     while True:
         user_input = input('> ')
         if user_input.lower() == 'exit':
-            print("Goodbye!")
+            print("Goodbye Bro")
             break
         response = respond_to_user_input(rules, user_input)
         print(response)
