@@ -1,6 +1,5 @@
-IF hello THEN Hi there! How can I help you?
-IF bye THEN Goodbye! Have a great day!
-IF help THEN Sure, I'm here to help you.
-IF weather THEN It's a sunny day today.
-IF nitesh THEN Hello Nitesh 
-IF parth THEN Hello parth
+hello: Hi there! How can I help you today?
+bye: Goodbye! Have a great day!
+thanks: You're welcome!
+weather: I'm not sure about the weather, but you can check a weather app.
+name: I'm a chatbot created to assist you. I don't have a personal name.

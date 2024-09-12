@@ -2,29 +2,37 @@ def load_rules(file_path):
     rules = {}
     with open(file_path, 'r') as file:
         for line in file:
-            if line.strip():  # Check if the line is not empty
-                condition, response = line.split(' THEN ')
-                condition = condition.replace('IF ', '').strip().lower()
-                response = response.strip()
-                rules[condition] = response
+            line = line.strip()
+            if ':' in line:
+                trigger, response = line.split(':', 1)
+                rules[trigger.strip()] = response.strip()
     return rules
 
-def respond_to_user_input(rules, user_input):
-    user_input = user_input.strip().lower()
-    return rules.get(user_input, "Sorry, I don't understand that.")
+def respond_to_input(rules, user_input):
+    for trigger in rules:
+        if trigger in user_input.lower():
+            return rules[trigger]
+    return "I'm sorry, I don't understand that."
 
 def main():
     # Load rules from the file
-    rules = load_rules('rules.txt')
-    # Continuously ask for user input and respond
-    print("Type your input (type 'exit' to quit):")
+    rules_file = 'rules.txt'
+    rules = load_rules(rules_file)
+    
+    print("Chatbot is running. Type 'exit' to quit.")
+    
     while True:
-        user_input = input('> ')
-        if user_input.lower() == 'exit':
-            print("Goodbye Bro")
+        # Get user input
+        user_input = input("Nitesh: ")
+        
+        # Exit the loop if the user types 'exit'
+        if user_input.lower() == 'out':
+            print("Parth: Goodbye!")
             break
-        response = respond_to_user_input(rules, user_input)
-        print(response)
+        
+        # Get the response based on the rules
+        response = respond_to_input(rules, user_input)
+        print(f"Parth: {response}")
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
